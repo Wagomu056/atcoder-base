@@ -46,11 +46,13 @@ do
     OUT=`cat test-data/test$i | ./main`
     EXPECT=`cat test-data/ans$i`
 
+    echo "- INPUT -"
+    cat test-data/test$i
     if test "$OUT" = "$EXPECT" ; then
-        printf "\e[36m%s\n\e[m" "OK"
+        printf "\e[36m%s\n\e[m" "- RESULT: OK -"
         echo "OUT: $OUT"
     else
-        printf "\e[31m%s\n\e[m" "NG"
+        printf "\e[31m%s\n\e[m" "- RESULT: NG -"
         echo "OUT: $OUT"
         echo "EXPECT: $EXPECT"
     fi
